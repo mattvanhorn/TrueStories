@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore RVM configuration
+.rvmrc
+
+# Ignore RSpec preferences
+.rspec
