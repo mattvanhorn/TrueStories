@@ -1,0 +1,4 @@
+= simple_form_for(story, :html => {:class => 'form-horizontal' }) do |form|
+  = form.input :title, :wrapper_html => { :class => 'title' }
+  = form.input :body,  :wrapper_html => { :class => 'body' }
+  = form.button :submit

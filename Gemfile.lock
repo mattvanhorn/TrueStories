@@ -156,6 +156,9 @@ GEM
     shoulda-matchers (1.0.0)
     show_me_the_cookies (1.1.0)
       capybara (~> 1.0)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -197,5 +200,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   shoulda-matchers
   show_me_the_cookies
+  simple_form
   timecop
   uglifier (>= 1.0.3)

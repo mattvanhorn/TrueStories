@@ -5,11 +5,20 @@ describe Story do
 
   subject { Fabricate.build(:story) }
 
-  it "has a title" do
-    subject.should have_db_column(:title).of_type(:string)
+  describe "attributes" do
+    it "has a title" do
+      subject.should have_db_column(:title).of_type(:string)
+    end
+
+    it "has a body" do
+      subject.should have_db_column(:body).of_type(:text)
+    end
+
+    [:body, :title].each do |attr|
+      it { should validate_presence_of(attr) }
+    end
+
+    it { should have_accessible_attributes :title, :body }
   end
 
-  it "has a body" do
-    subject.should have_db_column(:body).of_type(:text)
-  end
 end

@@ -6,6 +6,7 @@ gem 'json'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'decent_exposure'
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
