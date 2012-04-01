@@ -1,0 +1,6 @@
+%h1 Newest Stories
+%ul
+  - stories.each do |story|
+    %li[story]
+      %h2= story.title
+      %p= story.body

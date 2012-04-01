@@ -5,6 +5,7 @@ gem 'pg'
 gem 'json'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'decent_exposure'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -15,13 +16,13 @@ group :assets do
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem "shoulda-matchers"
   gem "fabrication"
-  gem 'activerecord-nulldb-adapter' #, :git => 'git://github.com/mattvanhorn/nulldb'
+  gem 'activerecord-nulldb-adapter', :git => 'git://github.com/mattvanhorn/nulldb'
   gem 'timecop'
   gem 'launchy'
   gem 'show_me_the_cookies'
