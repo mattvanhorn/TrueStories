@@ -11,6 +11,9 @@ module NavigationHelpers
     when /the home\s?page$/
       root_path
 
+    when /the sign in page/
+      '/auth/developer'
+
     else
       begin
         page_name =~ /the (.*) page( for that (.+))?/

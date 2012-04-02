@@ -102,6 +102,9 @@ GEM
     mime-types (1.18)
     multi_json (1.2.0)
     nokogiri (1.5.2)
+    omniauth (1.0.3)
+      hashie (~> 1.2)
+      rack
     pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -194,6 +197,7 @@ DEPENDENCIES
   jquery-rails
   json
   launchy
+  omniauth
   pg
   rails (= 3.2.3)
   rspec-rails
