@@ -3,13 +3,12 @@ TrueStories::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
   match '/auth/:provider/callback' => 'sessions#create'
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  match '/upvote/:story_id' => 'votes#upvote', :as => :upvote
+  match '/downvote/:story_id' => 'votes#downvote', :as => :downvote
+  # This route can be invoked with downvote_url(:story_id => story.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
     resources :stories

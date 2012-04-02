@@ -5,7 +5,8 @@ module HtmlSelectorsHelper
       "html > body"
     when /the input for (.*)/
       ".control-group.#{$1}"
-
+    when /the story with id=(\d+)/
+      "#story_#{$1}"
     else
       raise "Can't find mapping from \"#{scope}\" to a selector.\n" +
         "Now, go and add a mapping in #{__FILE__}"

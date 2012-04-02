@@ -1,0 +1,7 @@
+%li[story]
+  %h4= story.title
+  %p= story.body
+  %p #{story.votes} votes
+  %p
+    = link_to "upvote",   upvote_path(story),   :remote => true, :method => :post
+    = link_to "downvote", downvote_path(story), :remote => true, :method => :post

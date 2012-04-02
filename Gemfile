@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'omniauth'
+gem 'make_voteable'
 
 # Gems used only for assets and not required
 # in production environments by default.
