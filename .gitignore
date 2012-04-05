@@ -19,3 +19,6 @@
 
 # Ignore RSpec preferences
 .rspec
+
+# Aaargh...
+.DS_Store

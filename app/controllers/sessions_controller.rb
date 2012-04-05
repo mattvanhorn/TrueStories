@@ -12,20 +12,19 @@ class SessionsController < ApplicationController
     respond_with(user, :location => root_url)
   end
 
+  def destroy
+    sign_out
+    redirect_to root_url
+  end
+
+  def failure
+    redirect_to root_url, alert: "Authentication failed, please try again."
+  end
+
   protected
 
   def auth_hash
     request.env['omniauth.auth']
   end
 
-  def sign_in(user)
-    @current_user = user
-    session[:user_id] = user.id
-  end
-
-  def current_user
-    @current_user ||= User.find_by_id(cookies.signed['remember_me'])
-  end
-
-  helper_method :current_user
 end

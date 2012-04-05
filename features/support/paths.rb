@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the sign in page/
       '/auth/developer'
 
+    when /the sign up page/
+      '/identities/new'
+
     else
       begin
         page_name =~ /the (.*) page( for that (.+))?/

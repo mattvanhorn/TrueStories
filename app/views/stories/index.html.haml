@@ -1,2 +1,5 @@
-%h2 Newest Stories
-%ul= render stories
+#stories-index
+  %h2 Newest Stories
+  %ul.stories
+    = render stories
+  %p= link_to "Post A Story", new_story_path

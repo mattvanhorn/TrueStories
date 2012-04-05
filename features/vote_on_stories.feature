@@ -19,7 +19,7 @@ Feature: Vote on stories
     And I click on "Sign In"
     Then I should be on the home page
     And I should see "0 votes" within the story with id=42
-    When I click on "upvote" within the story with id=42
+    When I click on "upvote-42"
     Then I should be on the home page
     And I should see "1 votes" within the story with id=42
 

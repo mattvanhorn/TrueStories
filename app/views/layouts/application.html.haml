@@ -6,11 +6,19 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %h1 True Stories of BDD
-    %h3 What are you *really* working on?
-    - if current_user
-      %p
-        logged in as #{current_user.email}
-    - else
-      = link_to "Sign In", '/auth/developer'
-    = yield
+    #masthead
+      %h1 True Stories of BDD
+      %h3 What are you *really* working on?
+
+    #content
+      = yield
+
+      #login
+        - if current_user
+          %p
+            logged in as #{current_user.email}
+        - else
+          = link_to "Sign In", '/auth/developer'
+          %strong Don&rsquo;t use these services?
+          #{link_to "Create an account", new_identity_path} or login below.
+

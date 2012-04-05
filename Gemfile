@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'omniauth'
+gem 'omniauth-identity'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'make_voteable'
 
 # Gems used only for assets and not required
