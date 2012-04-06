@@ -9,6 +9,8 @@ gem 'decent_exposure'
 gem 'simple_form'
 gem 'omniauth'
 gem 'omniauth-identity'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'make_voteable'
 
