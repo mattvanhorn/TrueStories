@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
     if user.save
       sign_in(user)
       cookies.permanent.signed[:remember_me] = user.id
+      redirect_to root_url and return
     end
-    respond_with(user, :location => root_url)
+    redirect_to root_url, alert: "Authentication failed, please try again."
   end
 
   def destroy
