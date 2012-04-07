@@ -21,16 +21,15 @@ class CreateMakeVoteableTables < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :user, :column_name
     remove_index :votings, :column => [:voteable_type, :voteable_id]
     remove_index :votings, :column => [:voter_type, :voter_id]
     remove_index :votings, :name => "unique_voters"
 
     drop_table :votings
 
-    remove_column :stories, :down_vote
+    remove_column :stories, :down_votes
     remove_column :stories, :up_votes
-    remove_column :users, :down_vote
+    remove_column :users, :down_votes
     remove_column :users, :up_votes
   end
 end

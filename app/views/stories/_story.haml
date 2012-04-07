@@ -3,8 +3,8 @@
   %p.votes
     #{story.votes} votes
     - if current_user
-      = link_to raw("&#11014;"), upvote_path(story),   :remote => true, :method => :post, :id => "upvote-#{story.id}"
-      = link_to raw("&#11015;"), downvote_path(story), :remote => true, :method => :post, :id => "downvote-#{story.id}"
+      = link_to raw("&#11014;"), upvote_path(story),   :remote => true, :method => :post, :id => "upvote-#{story.id}", :'data-type' => 'script'
+      = link_to raw("&#11015;"), downvote_path(story), :remote => true, :method => :post, :id => "downvote-#{story.id}", :'data-type' => 'script'
   .body
     = simple_format(story.body)
 

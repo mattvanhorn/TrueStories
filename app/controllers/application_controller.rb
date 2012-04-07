@@ -12,10 +12,13 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     @current_user = user
     session[:user_id] = user.id
+    cookies.permanent.signed[:remember_me] = user.id
+    flash[:notice] = "Signed in successfully."
   end
 
   def sign_out
     session[:user_id] =  cookies.permanent.signed[:remember_me] =  @current_user = nil
+    flash[:notice] = "Signed out!"
   end
 
 end

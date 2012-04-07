@@ -13,10 +13,19 @@ Feature: Vote on stories
       | title | Story2                |
       | body  | this is a so-so story |
       | id    | 69                    |
+    And the following user:
+      | nickname              | Alice             |
+
+    And the following identity:
+      | name                  | Alice             |
+      | email                 | alice@example.com |
+      | password              | password1         |
+      | password_confirmation | password1         |
+
     When I visit the sign in page
-    And I fill in "Name" with "alice"
-    And I fill in "Email" with "alice@example.com"
-    And I click on "Sign In"
+    And I fill in "Login" with "alice@example.com"
+    And I fill in "Password" with "password1"
+    And I click on "Connect"
     Then I should be on the home page
     And I should see "0 votes" within the story with id=42
     When I click on "upvote-42"

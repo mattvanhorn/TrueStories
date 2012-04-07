@@ -12,10 +12,10 @@ module NavigationHelpers
       root_path
 
     when /the sign in page/
-      '/auth/developer'
+      '/auth/identity'
 
     when /the sign up page/
-      '/identities/new'
+      '/sign_up'
 
     else
       begin

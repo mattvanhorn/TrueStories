@@ -16,22 +16,17 @@
       #login
         - if current_user
           %p
-            logged in as #{current_user.email}
+            logged in as #{current_user.nickname || current_user.email}
         - else
           %p
-            Sign in to vote
-          %ul
-            %li
-              %a{:href => "/auth/twitter"}
-                = image_tag("twitter_32.png", :size => "32x32")
-                Sign in with Twitter
-            %li
-              %a{:href => "/auth/github"}
-              = image_tag("github_32.png", :size => "32x32")
-              Sign in with Github
+            Sign in to vote.
+          %p
+            %a{:href => "/auth/twitter"}= image_tag("twitter_32.png", :size => "32x32", :title => 'Twitter')
 
-          %strong Don&rsquo;t use these services?
-          = link_to "Create an account", new_identity_path
-          or
-          = link_to "Sign In", '/auth/developer'
+            %a{:href => "/auth/github"}= image_tag("github_32.png", :size => "32x32", :title => 'Github')
+
+            %strong Don&rsquo;t use these services?
+            = link_to "Create an account", new_identity_path
+            or
+            = link_to "Sign in here", '/auth/identity'
 

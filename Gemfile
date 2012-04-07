@@ -26,6 +26,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem "shoulda-matchers"
   gem "fabrication"
@@ -34,10 +35,9 @@ group :test do
   gem 'launchy'
   gem 'show_me_the_cookies'
   gem 'cover_me', :require => false
+  gem 'vcr'
+  gem 'webmock'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'ruby-debug'

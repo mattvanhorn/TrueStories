@@ -1,19 +1,28 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name
+  attr_accessible :nickname
 
-  validates :email, :presence =>  true
-
-  has_many :identities
+  has_one :identity
+  has_many :authorizations
 
   make_voter
 
-  def self.find_or_create_from_auth_hash(auth_hash)
-    User.find_or_create_by_email(auth_hash['uid'])
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.identity = Identity.find_from_omniauth(auth)
+      user.nickname = user.identity.name
+    end
   end
 
   def self.from_omniauth(auth)
-    identify = Identity.find_by_provider_and_uid(auth["provider"], auth["uid"]) || Identity.create_with_omniauth(auth)
-    identify.user || User.create! {|user| user.identities <<  identify}
+    case auth['provider']
+    when 'identity'
+      identify = Identity.find_from_omniauth(auth)
+      if identify
+        return identify.user || User.create!(:nickname => identify.name){|u| u.identity = identify}
+      end
+    else
+      raise 'unknown provider'
+    end
   end
 
 end
