@@ -5,6 +5,6 @@ describe Identity do
 
   it "finds from auth hash" do
     Identity.should_receive(:find_by_id).with('123')
-    Identity.find_from_omniauth(auth)
+    Identity.get_user_from_omniauth(auth)
   end
 end

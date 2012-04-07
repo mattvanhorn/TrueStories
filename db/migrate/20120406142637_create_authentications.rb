@@ -1,6 +1,6 @@
-class CreateAuthorizations < ActiveRecord::Migration
+class CreateAuthentications < ActiveRecord::Migration
   def change
-    create_table "authorizations", :force => true do |t|
+    create_table "authentications", :force => true do |t|
       t.integer  "user_id"
       t.string   "provider"
       t.string   "uid"
