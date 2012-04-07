@@ -10,7 +10,7 @@ class Authentication < ActiveRecord::Base
     else
       user = User.new do |u|
         u.nickname = auth['info']['name']
-        u.authentications.build(:provider => provider, :uid => uid)
+        u.add_authentication(auth)
       end
       return user if user.save
     end

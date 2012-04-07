@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
   def has_auth?(provider)
     authentications.map(&:provider).include?(provider)
   end
+  
+  def add_authentication(auth)
+    provider, uid = auth['provider'].to_s, auth['uid'].to_s
+    authentications.build(:provider => provider, :uid => uid)
+  end
 end

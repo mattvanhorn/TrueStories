@@ -4,8 +4,12 @@ class SessionsController < ApplicationController
   expose(:user){ current_user || User.new(params[:user]) }
 
   def create
-    user = User.from_omniauth(auth_hash)
-    sign_in(user)
+    if current_user
+      current_user.add_authentication(auth_hash)
+    else
+      user = User.from_omniauth(auth_hash)
+      sign_in(user)
+    end
     redirect_to root_url
   end
 
