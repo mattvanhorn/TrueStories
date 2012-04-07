@@ -1,10 +1,15 @@
 class StoriesController < ApplicationController
-  expose(:stories){ Story.order('created_at DESC') }
+  expose(:newest_stories){ Story.newest }
+  expose(:popular_stories){ Story.popular }
   expose(:story)
 
   respond_to :html
 
   def index
+    render
+  end
+
+  def popular
     render
   end
 

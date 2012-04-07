@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406142637) do
+ActiveRecord::Schema.define(:version => 20120407221358) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120406142637) do
     t.datetime "updated_at",                :null => false
     t.integer  "up_votes",   :default => 0, :null => false
     t.integer  "down_votes", :default => 0, :null => false
+    t.string   "link"
   end
 
   create_table "users", :force => true do |t|

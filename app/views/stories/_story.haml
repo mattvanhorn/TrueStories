@@ -8,3 +8,6 @@
   .body
     = simple_format(story.body)
 
+  - unless story.link.blank?
+    %small= link_to "read more", story.link
+

@@ -1,11 +1,10 @@
 #stories-index
   %h2.newest
-    Newest Stories
+    = link_to "Newest Stories", stories_path
 
   %h2.popular
-    = link_to "Popular Stories", popular_stories_path
+    Popular Stories
 
   %ul.stories
-    = render newest_stories
-
+    = render popular_stories
   %p= link_to "Post A Story", new_story_path

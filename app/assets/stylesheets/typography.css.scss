@@ -41,6 +41,14 @@
     text-transform: uppercase;
     text-shadow: -2px 1px 2px black;
     margin: 0;
+    float: left;
+    &.popular {
+      margin-left: 40px;
+    }
+    a {
+      color: #7D6836;
+      text-decoration: none;
+    }
   }
   h4 {
     font-family: LeagueGothicRegular;
@@ -55,6 +63,7 @@
     font-size: 24px;
   }
   ul.stories {
+    clear: both;
     list-style-type: none;
   }
   a {

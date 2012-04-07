@@ -17,6 +17,15 @@
         - if current_user
           %p
             logged in as #{current_user.nickname}
+          - if current_user.authentications.size < 2
+            %p
+              click to connect with:
+              - unless current_user.has_auth?('twitter')
+                %a{:href => "/auth/twitter"}= image_tag("twitter_32.png", :size => "32x32", :title => 'Twitter')
+              - unless current_user.has_auth?('github')
+                %a{:href => "/auth/github"}= image_tag("github_32.png", :size => "32x32", :title => 'Github')
+          %p
+            = link_to 'Sign out', sign_out_path
         - else
           %p
             Sign in to vote.

@@ -10,21 +10,24 @@ TrueStories::Application.routes.draw do
   match '/downvote/:story_id' => 'votes#downvote', :as => :downvote
   match "/sign_up", to: "identities#new", :as => :sign_up
   match "/sign_out", to: "sessions#destroy", :as => :sign_out
+
   # This route can be invoked with downvote_url(:story_id => story.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :stories, :only => [:index, :new, :create]
   resources :identities, :only => [:new]
 
+
   # Sample resource route with options:
+  resources :stories, :only => [:index, :new, :create] do
+    collection do
+      get 'popular'
+    end
+  end
+
   #   resources :products do
   #     member do
   #       get 'short'
   #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
   #     end
   #   end
 

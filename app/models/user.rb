@@ -15,4 +15,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_auth?(provider)
+    authentications.map(&:provider).include?(provider)
+  end
 end
