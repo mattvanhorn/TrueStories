@@ -16,7 +16,7 @@
       #login
         - if current_user
           %p
-            logged in as #{current_user.nickname || current_user.email}
+            logged in as #{current_user.nickname}
         - else
           %p
             Sign in to vote.
