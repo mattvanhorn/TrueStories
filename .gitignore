@@ -20,5 +20,8 @@
 # Ignore RSpec preferences
 .rspec
 
+#. Ignore heroku.yml
+config/heroku.yml
+
 # Aaargh...
 .DS_Store
