@@ -5,7 +5,41 @@
   %h2.popular
     = link_to "Popular Stories", popular_stories_path
 
-  %ul.stories
-    = render newest_stories
+  %p.post= link_to "Post A Story", new_story_path
+
+  #pages
+    %ul.stories.page
+      = render newest_stories
 
   %p= link_to "Post A Story", new_story_path
+
+:javascript
+  (function() {
+    var page = 1,
+        loading = false;
+
+    function nearBottomOfPage() {
+      return $(window).scrollTop() > $(document).height() - $(window).height() - 200;
+    }
+
+    $(window).scroll(function(){
+      if (loading) {
+        return;
+      }
+
+      if(nearBottomOfPage()) {
+        loading=true;
+        page++;
+        $.ajax({
+          url: '/stories?page=' + page,
+          type: 'get',
+          dataType: 'script',
+          success: function() {
+            $(window).sausage('draw');
+            loading=false;
+          }
+        });
+      }
+    });
+    $(window).sausage();
+  }());

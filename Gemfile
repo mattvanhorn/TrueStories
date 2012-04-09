@@ -13,6 +13,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'make_voteable'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.

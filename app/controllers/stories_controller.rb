@@ -1,16 +1,24 @@
 class StoriesController < ApplicationController
-  expose(:newest_stories){ Story.newest }
-  expose(:popular_stories){ Story.popular }
+  expose(:newest_stories){ Story.newest.page(params[:page]) }
+  expose(:popular_stories){ Story.popular.page(params[:page]) }
   expose(:story)
 
   respond_to :html
 
   def index
-    render
+    respond_to do |format|
+      format.js
+      format.html
+      format.xml  { render :xml => newest_stories }
+    end
   end
 
   def popular
-    render
+    respond_to do |format|
+      format.js
+      format.html
+      format.xml  { render :xml => popular_stories }
+    end
   end
 
   def new
